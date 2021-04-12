@@ -57,7 +57,7 @@ class PatchMaker:
         if mask is None:
             # make patch squared
             min_ind = np.argmin(dsize)
-            start = int((dsize[min_ind-1] - dsize[min_ind])/2)
+            start = int((dsize[min_ind - 1] - dsize[min_ind]) / 2)
             end = dsize[min_ind] + start
             if min_ind == 0:
                 patch = patch[:, :, start:end]

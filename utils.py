@@ -4,6 +4,7 @@ from torch.types import Number
 import torchgeometry as tgm
 import torch
 
+
 def create_circular_mask(h, w, center=None, radius=None):
     if center is None:  # use the middle of the image
         center = (int(w / 2), int(h / 2))
@@ -21,8 +22,8 @@ def transform(
     img_tensor: torch.Tensor,
     angle: Union[torch.Tensor, Number],
     scale: Union[torch.Tensor, Number],
-    shear: Optional[torch.Tensor]=None,
-    location: Optional[torch.Tensor]=None,
+    shear: Optional[torch.Tensor] = None,
+    location: Optional[torch.Tensor] = None,
     dsize: Optional[torch.Size] = None,
     device: torch.device = torch.device("cpu"),
 ):
@@ -49,4 +50,4 @@ def transform(
     M += sm
     if dsize is None:
         dsize = img_tensor.shape[-2:]
-    return tgm.warp_affine(img_tensor, M, dsize) # type: ignore
+    return tgm.warp_affine(img_tensor, M, dsize)  # type: ignore
